@@ -56,7 +56,7 @@ permissions:
         - ghalactic/provision-github-tokens
       permissions:
         actions: write
-        contents: read
+        contents: write
 
 provision:
   rules:
