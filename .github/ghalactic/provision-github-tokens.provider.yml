@@ -45,6 +45,7 @@ permissions:
         checks: read
         contents: write
         discussions: read
+        workflows: write
 
     - description: CI for provision-github-tokens can access its fixture repo
       resources:
