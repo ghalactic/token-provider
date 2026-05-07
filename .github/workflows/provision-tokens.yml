@@ -3,10 +3,10 @@ name: Provision tokens
 on:
   workflow_dispatch:
   schedule:
-    - cron: 7 * * * *
-    - cron: 22 * * * *
-    - cron: 37 * * * *
-    - cron: 52 * * * *
+    - cron: "7 * * * *"
+    - cron: "22 * * * *"
+    - cron: "37 * * * *"
+    - cron: "52 * * * *"
 
 jobs:
   provision:
