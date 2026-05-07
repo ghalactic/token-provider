@@ -1,0 +1,70 @@
+# yaml-language-server: $schema=https://ghalactic.github.io/provision-github-tokens/schema/provider.v1.schema.json
+
+permissions:
+  rules:
+    - description: Any consumer can read metadata from anywhere
+      resources:
+        - accounts: ["*"]
+          noRepos: true
+          allRepos: true
+          selectedRepos: ["*"]
+      consumers: ["*", "*/*"]
+      permissions:
+        metadata: read
+
+    - description: Renovate can manage dependency updates in any repo
+      resources:
+        - accounts:
+            - ghalactic
+          allRepos: true
+      consumers:
+        - ghalactic/renovate
+        - ghalactic/repos
+      permissions:
+        administration: read
+        checks: write
+        contents: write
+        issues: write
+        members: read
+        metadata: read
+        pull_requests: write
+        statuses: write
+        vulnerability_alerts: read
+        workflows: write
+
+    - description: CI for github-release-from-tag can access its fixture repo
+      resources:
+        - accounts:
+            - ghalactic-fixtures
+          selectedRepos:
+            - github-release-from-tag-ci
+      consumers:
+        - ghalactic/github-release-from-tag
+      permissions:
+        actions: read
+        checks: read
+        contents: write
+        discussions: read
+
+    - description: CI for provision-github-tokens can access its fixture repo
+      resources:
+        - accounts:
+            - ghalactic-fixtures
+          selectedRepos:
+            - provision-github-tokens-ci-consumer
+      consumers:
+        - ghalactic/provision-github-tokens
+      permissions:
+        actions: write
+        contents: read
+
+provision:
+  rules:
+    secrets:
+      - description: Any requester can provision actions secrets to itself
+        secrets: ["*"]
+        requesters: ["*/*"]
+        to:
+          github:
+            repo:
+              actions: allow

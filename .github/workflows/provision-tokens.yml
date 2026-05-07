@@ -1,0 +1,39 @@
+name: Provision tokens
+
+on:
+  workflow_dispatch:
+  # schedule:
+  #   - cron: 3 * * * *
+  #   - cron: 18 * * * *
+  #   - cron: 33 * * * *
+  #   - cron: 48 * * * *
+
+jobs:
+  provision:
+    runs-on: ubuntu-latest
+    name: Provision tokens
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Provision tokens
+        uses: ghalactic/provision-github-tokens@main # TODO: pin to a release
+        with:
+          apps: |
+            - appId: ${{ toJSON(vars.GHALACTIC_FIXTURES_CI_APP_ID) }}
+              privateKey: ${{ toJSON(secrets.GHALACTIC_FIXTURES_CI_APP_PK) }}
+              issuer:
+                enabled: true
+                roles:
+                  - ci
+            - appId: ${{ toJSON(vars.GHALACTIC_RENOVATE_APP_ID) }}
+              privateKey: ${{ toJSON(secrets.GHALACTIC_RENOVATE_APP_PK) }}
+              issuer:
+                enabled: true
+                roles:
+                  - renovate
+            - appId: ${{ toJSON(vars.GHALACTIC_TOKEN_PROVISIONER_APP_ID) }}
+              privateKey: ${{ toJSON(secrets.GHALACTIC_TOKEN_PROVISIONER_APP_PK) }}
+              provisioner:
+                enabled: true
