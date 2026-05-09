@@ -8,5 +8,5 @@ on:
 jobs:
   report:
     name: Ghalactic
-    uses: ghalactic/repos/.github/workflows/shared-report-workflow-change-metrics.yml@main
+    uses: ghalactic/repos/.github/workflows/shared-observe-workflow-changes.yml@main
     secrets: inherit
