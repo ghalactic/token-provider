@@ -1,0 +1,11 @@
+name: Observe workflow changes
+
+on:
+  push:
+    paths: [.github/workflows/provision-tokens.yml]
+    branches: [main]
+
+jobs:
+  report:
+    uses: ghalactic/repos/.github/workflows/shared-report-workflow-change-metrics.yml@main
+    secrets: inherit

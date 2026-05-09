@@ -1,0 +1,11 @@
+name: Observe workflow metrics
+
+on:
+  workflow_run:
+    workflows: [Provision tokens]
+    types: [requested, completed]
+
+jobs:
+  report:
+    uses: ghalactic/repos/.github/workflows/shared-report-workflow-run-metrics.yml@main
+    secrets: inherit
