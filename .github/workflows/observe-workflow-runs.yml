@@ -1,8 +1,10 @@
+# DO NOT EDIT - This file is managed by ghalactic/repos.
+
 name: Observe workflow runs
 
 on:
   workflow_run:
-    workflows: [Provision tokens]
+    workflows: ["Provision tokens"]
     types: [requested, completed]
 
 jobs:
