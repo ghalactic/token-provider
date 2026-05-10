@@ -1,8 +1,10 @@
+# DO NOT EDIT - This file is managed by ghalactic/repos.
+
 name: Observe workflow changes
 
 on:
   push:
-    paths: [.github/workflows/provision-tokens.yml]
+    paths: [".github/workflows/provision-tokens.yml"]
     branches: [main]
 
 jobs:
