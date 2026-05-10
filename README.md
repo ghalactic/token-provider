@@ -6,7 +6,7 @@
 [workflow runs]:
   https://github.com/ghalactic/token-provider/actions/workflows/provision-tokens.yml
 [workflow dashboard]:
-  https://ghalactic.grafana.net/public-dashboards/3b42fc7fe39c499e88cc0ff40807d2cd
+  https://ghalactic.grafana.net/public-dashboards/a8c5b95788844e0890df1eac5b9efce1
 
 This repo houses the token provider for [Ghalactic], powered by the Ghalactic's
 own [Provision GitHub Tokens] action.
