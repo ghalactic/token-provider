@@ -1,4 +1,5 @@
 name: Provision tokens
+run-name: Provision tokens
 
 on:
   workflow_dispatch:
