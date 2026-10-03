@@ -7,7 +7,9 @@ permissions:
         - accounts: ["*"]
           noRepos: true
           allRepos: true
-          selectedRepos: ["*"]
+          selectedRepos:
+            visibility: public
+            repos: ["*"]
       consumers: ["*", "*/*"]
       permissions:
         metadata: read
@@ -37,7 +39,9 @@ permissions:
         - accounts:
             - ghalactic-fixtures
           selectedRepos:
-            - github-release-from-tag-ci
+            visibility: public
+            repos:
+              - github-release-from-tag-ci
       consumers:
         - ghalactic/github-release-from-tag
       permissions:
@@ -52,7 +56,9 @@ permissions:
         - accounts:
             - ghalactic-fixtures
           selectedRepos:
-            - provision-github-tokens-ci-consumer
+            visibility: public
+            repos:
+              - provision-github-tokens-ci-consumer
       consumers:
         - ghalactic/provision-github-tokens
       permissions:
@@ -68,4 +74,6 @@ provision:
         to:
           github:
             repo:
-              actions: allow
+              visibility: public
+              types:
+                actions: allow
